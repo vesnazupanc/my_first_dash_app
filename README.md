@@ -2,7 +2,7 @@
 
 Author: Vesna Zupanc
 
-CONTACT: vesnazupanc93@gmail.com
+Contact: vesnazupanc93@gmail.com
 
 ## Theme
 
