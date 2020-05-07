@@ -1,0 +1,27 @@
+####Dobrodošli!
+
+Avtorja pregleda:
+
+* Vesna Zupanc (vz1459@student.uni-lj.si)
+* Janez Bijec (...)
+
+Predstavljamo vam spletno aplikacijo, ki je nastala z namenom prikaza
+učinkovitosti zdravstvenega sistema pri rakavih obolenjih.
+
+##### Kazalo
+
+**Metedološka pojasnila**
+
+Tu se nahajajo pojasnila in opombe.
+
+**Zemljevid**
+
+Na zemljevidu si lahko pri poljubnem spolu in vrsti raka pogledate...
+
+**Grafični pregled 1**
+
+spet neko besedilo
+
+**Grafični pregled 2**
+
+še tuki pojasnilo ...
