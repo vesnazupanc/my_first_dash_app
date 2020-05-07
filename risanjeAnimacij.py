@@ -1,6 +1,4 @@
 import plotly.graph_objects as go
-import pandas as pd
-
 
 def narisi_graf_1(df, xlim, ylim):
     years = list(range(1985, 2017))
