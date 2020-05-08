@@ -26,7 +26,7 @@ df1 = get_data_plot1()
 plots1 = {}
 for key, value in spol_dict.items():
     dff1 = df1[df1.spol == key]
-    fig = narisi_graf_1(dff1, dff1['Groba incidenčna stopnja'].max() + 5, dff1['Groba umrljivostna stopnja'].max() + 5)
+    fig = narisi_graf_1(dff1, dff1['Incidenca'].max()*1.1, dff1['Umrljivost'].max()*1.1)
     plots1[key] = fig
 
 # PLOTS 2
@@ -41,15 +41,29 @@ for mera in mere:
 # BESEDILA ZA PRVA DVA ZAVIRHKA
 # =============================================================================
 
-besedilo_uvod = '''
-#     
-**Dobrodošli** na interaktivni spletni aplikaciji za prikaz podatkov iz Registra raka Republike Slovenije! 
+besedilo_uvod1 = '''
+### **DOBRODOŠLI!**
+  
+Nahajate se na interaktivni spletni aplikaciji za prikaz podatkov iz Registra raka Republike Slovenije, 
+ki je nastala v skladu predmeta Viri podatkov na študijskem programu druge stopnje Uporabna statistika. 
+'''
 
-##### **NAMEN:**
-Namen te spletne strani je predstaviti pojavnost, breme raka in uspešnost spopadanja s to boleznijo v populaciji Slovenije. Podatki so prikazani v obliki dveh grafičnih prikazov, kjer so uporabljene tri različne mere, s katerimi opisujemo pojavnost bolezni: **incidenca**, **umrljivost** in **prevalenca**. Več o uporabljenih merah in razlagi le teh, si lahko preberete v zavihku **Metodološka pojasnila.** Do prikazov dostopate pod zavihkoma **Grafični prikaz 1** in **Grafični prikaz 2**
+besedilo_uvod2 = '''
+##### **NAMEN APLIKACIJE**
 
-##### **PRIKAZI:**
-V prikazih boste opazili, da so nekatere lokacije raka posebej poudarjene. Poudarjene so na podlagi več različnih dejavnikov, ki so predvsem pogostost pojavitve in s tem večja "zanimivost" poleg tega pa so vedno poudarjene lokacije raka, ki so vključene v nacionalne presejalne programe ZORA, DORA in SVIT. Namen je predvsem pokazati vpliv presejalnih programov na omenjene mere.
+Namen spletne aplikacije je predstaviti pojavnost, breme raka in uspešnost spopadanja s to boleznijo v Sloveniji. 
+Podatki so prikazani v obliki dveh grafičnih prikazov, kjer so uporabljene različne mere, s katerimi opisujemo pojavnost bolezni.
+Več o uporabljenih merah in razlagi le teh, si lahko preberete v zavihku **Metodološka pojasnila.** 
+'''
+besedilo_uvod3 = '''
+##### **PRIKAZI**
+
+Do prikazov dostopate pod zavihkoma **Grafični prikaz 1** in **Grafični prikaz 2**.
+
+V prikazih boste opazili, da so nekatere lokacije raka posebej poudarjene. 
+Poudarjene so na podlagi več različnih dejavnikov, ki so predvsem pogostost pojavitve in s tem večja "zanimivost", 
+poleg tega pa so vedno poudarjene lokacije raka, ki so vključene v nacionalne presejalne programe **ZORA**, **DORA** in **SVIT**. 
+Namen je predvsem pokazati vpliv presejalnih programov na prej omenjene mere.
 
 Več o presejalnik programih si lahko preberete na spodnjih povezavah:
 
@@ -57,37 +71,42 @@ Več o presejalnik programih si lahko preberete na spodnjih povezavah:
 * [DORA](https://dora.onko-i.si/): Državni presejalni program za raka dojke
 * [SVIT](https://www.program-svit.si/): Državni program presejanja in zgodnjega odkrivanja predrakavih sprememb in raka na debelem črevesu in danki
 
-
-Podatke o incidenci in prevalenci raka zbira Register raka Republike Slovenije pri Onkološkem inštitutu, podatke o umrljivosti pa zbira Nacionalni inštitut za javno zdravje. Podatki o incidenci in prevalenci so na voljo od leta 1961, podatki o umrljivosti in preživetju pa od leta 1985.  
-
-##### **OPIS GRAFIČNIH PRIKAZOV:**
+Vir podatkov o incidenci ter prevalenci je podatkovna zbirka [Registra raka RS](https://www.onko-i.si/rrs), 
+podatke o umrljivosti pa zbira Nacionalni inštitut za javno zdravje ([NIJZ](https://www.nijz.si/)). 
+'''
+besedilo_uvod4 = '''
+##### **OPIS GRAFIČNIH PRIKAZOV**
 
 ###### **Grafični prikaz 1**
 
-Točkovni grafični prikaz ponuja primerjavo med incidenco in umrljivostjo za izbranimi raki od leta 1985 do leta 2016. Prav tako ponuja primerjavo med spoloma za rake, kjer je to smiselno. Z ukazom "Play" lahko opazujemo večletni trend in lahko jasno vidimo ali pojav tega raka narašča, ter ali smrtnost pada. Izberemo lahko tudi prikaz posameznega raka, ki nas zanima, s pomikom kurzorja na točko pa lahko dobimo številčni podatek za umrljivost. 
+Točkovni grafični prikaz ponuja primerjavo med grobo incidenčno stopnjo in grobo umrljivostno stopnjo glede na
+lokacijo raka od leta 1985 do leta 2016. 
+Prav tako ponuja tudi izbiro spola, kjer s tem lahko filtriramo podatke na ženski ali moški spol, podatke pa lahko
+pogledamo tudi za oba spola skupaj. 
+Z ukazom "Play" ali pa z ročno interakcijo po letih, si lahko opazujemo kakšen je trend posameznega raka.
+S pomikom kurzorja na neko točko pa lahko dobimo lokacijo pripadajočega raka ter podatek o grobi incidenčni in umrljivostni stopnji. 
 
 ###### **Grafični prikaz 2**
 
-Stolpčni diagram omogoča izbiro prikaza incidence, umrljivosti in prevalence od leta 1985 do leta 2016. Z interaktivnim ukazom "Play" je spet mogoče opazovati večletne trende. Pri tem prikazu sva želela še bolj povdariti razliko med spoloma za rake, kjer je to smiselno. 
-
-
-##### **AVTORJA:**
-
-* Vesna Zupanc (vz1459@student.uni-lj.si)
-* Janez Bijec (jb6697@student.uni-lj.si)
+Stolpčni diagram prav tako prikazuje trend gibanja posameznega raka, kjer sta prikazana oba spola hkrati.
+V tem primeru izbiramo med posameznimi merami, ki so nam na voljo v spustnem seznamu. 
+Prav tako lahko izbiramo med leti od 1985 do leta 2016 ali pa s klikom na gumb "Play" opazujemo animacijo.
 '''
 
-besedilo_pojasnila = '''
-#  
-
-##### **INCIDENCA:**
-**Incidenca** je mera, ki izraža absolutno število vseh novih primerov neke bolezni v časovnem intervalu, ponavadi koledarskem letu. Ker incidenca ne meri število bolnikov, se lahko zgodi, da isti bolnik v incidenco prispeva več primerov, če zboli za različnimi raki.  
-
-##### **UMRLJIVOST:**
-**Umrljivost** je mera, ki izraža absolutno število umrlih v neki populaciji, kot posledica neke bolezni, v našem primeru raka, v določenem časovnem obdobju, najbolj pogosto se za časovno obdobje uporablja koledarsko leto. 
-
-##### **PREVALENCA:**
-**Prevalenca** je mera, ki nam pove, koliko bolnikov, s postavljeno diagnozo, je bilo na določen datum še živih. Ponavadi je ta datum zadnji dan v letu. Za mere prevalence ni pomembno, kdaj je oseba zbolela.
+besedilo_pojasnila1 = '''
+##### **INCIDENCA**
+**Incidenca** je mera, ki izraža absolutno število vseh novih primerov neke bolezni v časovnem intervalu, ponavadi koledarskem letu.
+Ker incidenca ne meri število bolnikov, se lahko zgodi, da isti bolnik v incidenco prispeva več primerov, če zboli za različnimi raki.  
+'''
+besedilo_pojasnila2 = '''
+##### **UMRLJIVOST**
+Umrljivost je mera, ki izraža absolutno število umrlih v neki populaciji, kot posledica neke bolezni, 
+v našem primeru raka, v določenem časovnem obdobju, najbolj pogosto se za časovno obdobje uporablja koledarsko leto. 
+'''
+besedilo_pojasnila3 = '''
+##### **PREVALENCA**
+Prevalenca je mera, ki nam pove, koliko bolnikov, s postavljeno diagnozo, je bilo na določen datum še živih. 
+Ponavadi je ta datum zadnji dan v letu. Za mere prevalence ni pomembno, kdaj je oseba zbolela.
 '''
 
 besedilo_p1_zenske = '''
@@ -118,7 +137,6 @@ app.title = tabtitle
 app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div([
-    html.H3('Prikaz podatkov SLORA'),
     html.Div([
         dcc.Tabs(id="tabs", value='tab-domov', children=[
             dcc.Tab(label='Domov', value='tab-domov'),
@@ -131,11 +149,16 @@ app.layout = html.Div([
 ])
 
 tab1 = html.Div([
-    dcc.Markdown(besedilo_uvod)
-], style={'padding': '70px 200px 20px 50px'})
+    html.Div([dcc.Markdown(besedilo_uvod1)], style={'padding': '0px 0px 20px 0px'}),
+    html.Div([dcc.Markdown(besedilo_uvod2)], style={'padding': '0px 0px 20px 0px'}),
+    html.Div([dcc.Markdown(besedilo_uvod3)], style={'padding': '0px 0px 20px 0px'}),
+    html.Div([dcc.Markdown(besedilo_uvod4)], style={'padding': '0px 0px 20px 0px'}),
+], style={'padding': '70px 450px 20px 20px'})
 tab2 = html.Div([
-    dcc.Markdown(besedilo_pojasnila)
-], style={'padding': '70px 200px 20px 50px'})
+    html.Div([dcc.Markdown(besedilo_pojasnila1)], style={'padding': '0px 0px 20px 0px'}),
+    html.Div([dcc.Markdown(besedilo_pojasnila2)], style={'padding': '0px 0px 20px 0px'}),
+    html.Div([dcc.Markdown(besedilo_pojasnila3)], style={'padding': '0px 0px 20px 0px'})
+], style={'padding': '70px 450px 20px 20px'})
 
 tab3 = html.Div([
     html.Div(className="row", children=[
@@ -149,7 +172,7 @@ tab3 = html.Div([
                            html.H5('Komentaji:'),
                            html.Div(id='komentarji-p1')
                            ]),
-        html.Div(className="nine columns", style={'height': '700px'},
+        html.Div(className="nine columns", style={'height': '1000px'},
                  children=[dcc.Graph(id='plot1', style={'height': 'inherit'})
                            ])
     ])
@@ -165,7 +188,7 @@ tab4 = html.Div([
                                value='Incidenca',
                                clearable=False)
                            ]),
-        html.Div(className="nine columns", style={'height': '700px'},
+        html.Div(className="nine columns", style={'height': '1000px'},
                  children=[dcc.Graph(id='plot2', style={'height': 'inherit'})
                            ])
     ])

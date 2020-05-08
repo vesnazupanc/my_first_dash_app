@@ -13,10 +13,10 @@ def narisi_graf_1(df, xlim, ylim):
 
     # fill in most of layout
     fig_dict["layout"]["plot_bgcolor"] = "white"
-    fig_dict["layout"]["xaxis"] = {"range": [-1, xlim], "title": "Groba incidenčna stopnja",
+    fig_dict["layout"]["xaxis"] = {"range": [-50, xlim], "title": "Incidenca",
                                    "showline": True, "linecolor": 'black', 'gridcolor': None,
                                    'zerolinecolor': None}
-    fig_dict["layout"]["yaxis"] = {"range": [-1, ylim], "title": "Groba umrljivostna stopnja",
+    fig_dict["layout"]["yaxis"] = {"range": [-50, ylim], "title": "Umrljivost",
                                    "showline": True, "linecolor": 'black', 'gridcolor': '#cccccc',
                                    'gridwidth': 1}
     fig_dict["layout"]["hovermode"] = "closest"
@@ -75,11 +75,11 @@ def narisi_graf_1(df, xlim, ylim):
         df_leto_skupina = df_leto[df_leto["Skupina"] == skupina]
 
         data_dict = {
-            "x": list(df_leto_skupina["Groba incidenčna stopnja"]),
-            "y": list(df_leto_skupina["Groba umrljivostna stopnja"]),
+            "x": list(df_leto_skupina["Incidenca"]),
+            "y": list(df_leto_skupina["Umrljivost"]),
             "mode": "markers",
             "text": list(df_leto_skupina["vrstaRaka"]),
-            "hovertemplate": '<b>%{text}</b><br><br>Groba umrljivostna stopnja: %{y}<br>Groba incidenčna stopnja: %{x}',
+            "hovertemplate": '<b>%{text}</b><br><br>Umrljivost: %{y}<br>Incidenca: %{x}',
             "marker": {
                 "size": 15,
                 "color": list(df_leto_skupina["barva"])
@@ -96,11 +96,11 @@ def narisi_graf_1(df, xlim, ylim):
             df_leto_skupina = df_leto[df_leto["Skupina"] == skupina]
 
             data_dict = {
-                "x": list(df_leto_skupina["Groba incidenčna stopnja"]),
-                "y": list(df_leto_skupina["Groba umrljivostna stopnja"]),
+                "x": list(df_leto_skupina["Incidenca"]),
+                "y": list(df_leto_skupina["Umrljivost"]),
                 "mode": "markers",
                 "text": list(df_leto_skupina["vrstaRaka"]),
-                "hovertemplate": '<b>%{text}</b><br><br>Groba umrljivostna stopnja: %{y}<br>Groba incidenčna stopnja: %{x}',
+                "hovertemplate": '<b>%{text}</b><br><br>Umrljivost: %{y}<br>Incidenca: %{x}',
                 "marker": {
                     "size": 15,
                     "color": list(df_leto_skupina["barva"])

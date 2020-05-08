@@ -47,7 +47,7 @@ poudarjeni = {'debelo črevo (C18)': '#e41a1c',
 def get_data_plot1():
     prefix = 'http://www.slora.si/SLORA-Web/excelExport'
     df_final = pd.DataFrame()
-    for measure in ['2a2', '2b2']:
+    for measure in ['2a1', '2b1']:
         for gender in genders:
             postfix = (f'gender={gender}&'
                        f'groupBy=RakihOsnovno&'
