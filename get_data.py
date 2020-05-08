@@ -21,7 +21,7 @@ age_groups = ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39'
 stadiji = ['Omejen','Razsirjen', 'Razsejan', 'inSitu', 'Neznan']
 
 measures = {'2a1': 'Incidenca',
-            '2a2': 'Groba Incidenčna stopnja',
+            '2a2': 'Groba incidenčna stopnja',
             '2b1': 'Umrljivost',
             '2b2': 'Groba umrljivostna stopnja',
             '2c1': 'Prevalenca',
@@ -47,7 +47,7 @@ poudarjeni = {'debelo črevo (C18)': '#e41a1c',
 def get_data_plot1():
     prefix = 'http://www.slora.si/SLORA-Web/excelExport'
     df_final = pd.DataFrame()
-    for measure in ['2a1', '2b1']:
+    for measure in ['2a2', '2b2']:
         for gender in genders:
             postfix = (f'gender={gender}&'
                        f'groupBy=RakihOsnovno&'
@@ -74,10 +74,11 @@ def get_data_plot1():
     return df_final
 
 
+
 def get_data_plot2():
     prefix = 'http://www.slora.si/SLORA-Web/excelExport'
     df_final = pd.DataFrame()
-    for measure in ['2a1', '2b1']:
+    for measure in ['2a1', '2b1','2a2','2b2']:
         for gender in ['male', 'female']:
             postfix = (f'gender={gender}&'
                        f'groupBy=RakihOsnovno&'
