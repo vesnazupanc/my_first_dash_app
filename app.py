@@ -202,7 +202,7 @@ tab3 = html.Div([
                            html.H5('Komentar:'),
                            html.Div([dcc.Markdown(komentar1)], style={'padding': '0px 0px 20px 0px'})
                            ]),
-        html.Div(className="nine columns", style={'height': '1000px'},
+        html.Div(className="nine columns", style={'height': '800px'},
                  children=[dcc.Graph(id='plot1', style={'height': 'inherit'})
                            ])
     ])
@@ -220,7 +220,7 @@ tab4 = html.Div([
                            html.H5('Komentar:'),
                            html.Div([dcc.Markdown(komentar2)], style={'padding': '0px 0px 20px 0px'})
                            ]),
-        html.Div(className="nine columns", style={'height': '1000px'},
+        html.Div(className="nine columns", style={'height': '800px'},
                  children=[dcc.Graph(id='plot2', style={'height': 'inherit'})
                            ])
     ])
